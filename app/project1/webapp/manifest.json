@@ -1,0 +1,196 @@
+{
+  "_version": "1.86.0",
+  "sap.app": {
+    "id": "project1",
+    "type": "application",
+    "i18n": "i18n/i18n.properties",
+    "applicationVersion": {
+      "version": "0.0.1"
+    },
+    "title": "{{appTitle}}",
+    "description": "{{appDescription}}",
+    "resources": "resources.json",
+    "sourceTemplate": {
+      "id": "@sap/generator-fiori:lrop",
+      "version": "1.28.0",
+      "toolsId": "1f292402-201f-43a4-a191-8b2e41d8bcf6"
+    },
+    "dataSources": {
+      "mainService": {
+        "uri": "/service/PRMService/",
+        "type": "OData",
+        "settings": {
+          "annotations": [],
+          "odataVersion": "4.0"
+        }
+      }
+    }
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "icons": {
+      "icon": "",
+      "favIcon": "",
+      "phone": "",
+      "phone@2": "",
+      "tablet": "",
+      "tablet@2": ""
+    },
+    "deviceTypes": {
+      "desktop": true,
+      "tablet": true,
+      "phone": true
+    }
+  },
+  "sap.ui5": {
+    "flexEnabled": true,
+    "dependencies": {
+      "minUI5Version": "1.150.0",
+      "libs": {
+        "sap.m": {},
+        "sap.ui.core": {},
+        "sap.fe.templates": {}
+      }
+    },
+    "contentDensities": {
+      "compact": true,
+      "cozy": true
+    },
+    "models": {
+      "i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "settings": {
+          "bundleName": "project1.i18n.i18n"
+        }
+      },
+      "": {
+        "dataSource": "mainService",
+        "preload": true,
+        "settings": {
+          "operationMode": "Server",
+          "autoExpandSelect": true,
+          "earlyRequests": true
+        }
+      },
+      "@i18n": {
+        "type": "sap.ui.model.resource.ResourceModel",
+        "uri": "i18n/i18n.properties"
+      }
+    },
+    "resources": {
+      "css": []
+    },
+    "routing": {
+      "config": {},
+      "routes": [
+        {
+          "pattern": ":?query:",
+          "name": "PartnersList",
+          "target": "PartnersList"
+        },
+        {
+          "pattern": "Partners({key}):?query:",
+          "name": "PartnersObjectPage",
+          "target": "PartnersObjectPage"
+        },
+        {
+          "pattern": "Partners({key})/memberships({key2}):?query:",
+          "name": "MembershipsObjectPage",
+          "target": "MembershipsObjectPage"
+        }
+      ],
+      "targets": {
+        "PartnersList": {
+          "type": "Component",
+          "id": "PartnersList",
+          "name": "sap.fe.templates.ListReport",
+          "options": {
+            "settings": {
+              "contextPath": "/Partners",
+              "variantManagement": "Page",
+              "navigation": {
+                "Partners": {
+                  "detail": {
+                    "route": "PartnersObjectPage"
+                  }
+                }
+              },
+              "controlConfiguration": {
+                "@com.sap.vocabularies.UI.v1.LineItem": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              },
+              "defaultTemplateAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionPresentationVariant#tableView"
+            }
+          }
+        },
+        "PartnersObjectPage": {
+          "type": "Component",
+          "id": "PartnersObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Partners",
+              "navigation": {
+                "memberships": {
+                  "detail": {
+                    "route": "MembershipsObjectPage"
+                  }
+                }
+              },
+              "sectionLayout": "Tabs",
+              "controlConfiguration": {
+                "memberships/@com.sap.vocabularies.UI.v1.LineItem#Membership": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                },
+                "contacts/@com.sap.vocabularies.UI.v1.LineItem#Contacts": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "MembershipsObjectPage": {
+          "type": "Component",
+          "id": "MembershipsObjectPage",
+          "name": "sap.fe.templates.ObjectPage",
+          "options": {
+            "settings": {
+              "editableHeaderContent": false,
+              "contextPath": "/Partners/memberships",
+              "sectionLayout": "Tabs",
+              "controlConfiguration": {
+                "dimensions/@com.sap.vocabularies.UI.v1.LineItem#Dimensions": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                },
+                "descriptors/@com.sap.vocabularies.UI.v1.LineItem#Descriptors": {
+                  "tableSettings": {
+                    "type": "ResponsiveTable"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "sap.fiori": {
+    "registrationIds": [],
+    "archeType": "transactional"
+  },
+  "sap.fe": {
+    "app": {
+      "enableLazyLoading": true
+    }
+  }
+}

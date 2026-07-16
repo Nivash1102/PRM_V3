@@ -64,8 +64,12 @@ excluding
     modifiedAt,
     modifiedBy
 };
-}
 
+entity NumberRanges as projection on my.NumberRanges
+{
+    *
+};
+}
 /* annotate PRMService with @requires :
 [
     'authenticated-user'
