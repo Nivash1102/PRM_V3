@@ -1,0 +1,12 @@
+@host = http://localhost:4004
+@service = {{host}}/service/PRMService
+
+POST {{service}}/Partners
+Content-Type: application/json
+
+
+{
+    "Name": "ABC Technologies Pvt Ltd",
+    "Status": "A",
+    "Level": "G"
+}

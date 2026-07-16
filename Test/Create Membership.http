@@ -1,0 +1,12 @@
+POST http://localhost:4004/service/PRMService/Memberships
+Content-Type: application/json
+
+{
+    "ValidTo": "9999-12-31",
+    "ValidFrom": "2023-01-01",
+    "Type": "Sell",
+    "Status": "Requested",
+    "Reason": "New membership request",
+    "partner_ID": "aaf5a539-9295-4a79-b69b-da31b2bba7cf"
+}
+

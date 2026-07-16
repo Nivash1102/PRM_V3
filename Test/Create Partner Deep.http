@@ -1,0 +1,53 @@
+
+@host = http://localhost:4004
+@service = {{host}}/service/PRMService
+
+POST {{service}}/Partners
+Content-Type: application/json
+
+{
+    "Name": "Grand Technologies",
+    "Status": "A",
+    "Level": "G",
+
+    "contacts": [
+        {
+            "FirstName": "John",
+            "LastName": "Smith",
+            "Email": "john@abc.com",
+            "Function": "MAN"
+        },
+        {
+            "FirstName": "Mary",
+            "LastName": "Jones",
+            "Email": "mary@abc.com",
+            "Function": "ESI"
+        }
+    ],
+
+    "memberships": [
+        {
+            "Type": "Sell",
+            "Status": "Authorized",
+            "ValidFrom": "2026-07-15",
+            "ValidTo": "2030-12-31",
+
+            "dimensions": [
+                {
+                    "Type": "SERP",
+                    "Status": "AUT",
+                    "ValidFrom": "2026-07-15",
+                    "ValidTo": "2030-12-31"
+                }
+            ],
+
+            "descriptors": [
+                {
+                    "Descriptor": "HPE",
+                    "ValidFrom": "2026-07-15",
+                    "ValidTo": "2030-12-31"
+                }
+            ]
+        }
+    ]
+}

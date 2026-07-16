@@ -1,0 +1,10 @@
+### Variables
+@host = http://localhost:4004
+@service = {{host}}/service/PRMService
+
+#########################################################################
+# Read all Partners
+#########################################################################
+
+GET {{service}}/Partners?$expand=contacts,memberships($expand=dimensions,descriptors)
+Accept: application/json

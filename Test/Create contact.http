@@ -1,0 +1,10 @@
+POST http://localhost:4004/service/PRMService/Contacts
+Content-Type: application/json
+
+{
+    "FirstName": "John",
+    "LastName": "Smith",
+    "Email": "john.smith@abc.com",
+    "Function": "MAN",
+    "partner_ID": "aaf5a539-9295-4a79-b69b-da31b2bba7cf"
+}
