@@ -1,0 +1,6 @@
+Status,Description
+REQ,Requested
+REJ,Rejected
+AUT,Authorized
+AAR,Authorization at risk
+DEA,Deauthorized

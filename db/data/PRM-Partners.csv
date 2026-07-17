@@ -1,6 +1,6 @@
-ID,PartnerID,Name,Status,Level,createdAt,createdBy,modifiedAt,modifiedBy
-3f2504e0-4f89-41d3-9a0c-0305e82c3301,1000000001,TCS,A,P,,,,, 
-550e8400-e29b-41d4-a716-446655440000,1000000002,Accenture,A,P,,,,,
-8c2d3b8d-7d5d-4d71-b8c5-2d0f4d9b7e16,1000000003,Infosys,A,P,,,,,,
-f47ac10b-58cc-4372-a567-0e02b2c3d479,1000000004,Wipro,A,G,,,,,
-1b9d6bcd-bbfd-4b2d-9b5c-8d6f4a8f9c21,1000000005,Deloitte,A,P,,,,,
+ID,PartnerID,Name,Status_Status,Level_Level,createdAt,createdBy,modifiedAt,modifiedBy
+3f2504e0-4f89-41d3-9a0c-0305e82c3301,1000000001,TCS,Active,Platinum,,,,, 
+550e8400-e29b-41d4-a716-446655440000,1000000002,Accenture,Active,Platinum,,,,,
+8c2d3b8d-7d5d-4d71-b8c5-2d0f4d9b7e16,1000000003,Infosys,Active,Platinum,,,,,,
+f47ac10b-58cc-4372-a567-0e02b2c3d479,1000000004,Wipro,Active,Gold,,,,,
+1b9d6bcd-bbfd-4b2d-9b5c-8d6f4a8f9c21,1000000005,Deloitte,Active,Platinum,,,,,

@@ -1,27 +1,27 @@
 
 @host = http://localhost:4004
-@service = {{host}}/service/PRMService
+@service = {{host}}/service/PRMServiceAPI
 
 POST {{service}}/Partners
 Content-Type: application/json
 
 {
-    "Name": "Grand Technologies",
-    "Status": "A",
-    "Level": "G",
+    "Name": "Infocon",
+    "Status": "Active",
+    "Level": "Gold",
 
     "contacts": [
         {
             "FirstName": "John",
             "LastName": "Smith",
             "Email": "john@abc.com",
-            "Function": "MAN"
+            "Function": "E_signer"
         },
         {
             "FirstName": "Mary",
             "LastName": "Jones",
             "Email": "mary@abc.com",
-            "Function": "ESI"
+            "Function": "Partner_Manager"
         }
     ],
 

@@ -4,9 +4,9 @@ Content-Type: application/json
 {
     "ValidTo": "9999-12-31",
     "ValidFrom": "2023-01-01",
-    "Type": "Sell",
+    "Type": "Build",
     "Status": "Requested",
     "Reason": "New membership request",
-    "partner_ID": "aaf5a539-9295-4a79-b69b-da31b2bba7cf"
+    "partner_ID": "a1719c78-3b2d-4ff1-bcf4-dc0ed89bece9"
 }
 

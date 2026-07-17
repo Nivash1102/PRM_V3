@@ -170,11 +170,11 @@
                 "dimensions/@com.sap.vocabularies.UI.v1.LineItem#Dimensions": {
                   "tableSettings": {
                     "type": "ResponsiveTable"
-                  }
-                },
-                "descriptors/@com.sap.vocabularies.UI.v1.LineItem#Descriptors": {
-                  "tableSettings": {
-                    "type": "ResponsiveTable"
+                  },
+                  "descriptors/@com.sap.vocabularies.UI.v1.LineItem#Descriptors": {
+                    "tableSettings": {
+                      "type": "ResponsiveTable"
+                    }
                   }
                 }
               }

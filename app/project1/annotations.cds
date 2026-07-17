@@ -15,13 +15,12 @@ annotate service.Partners with @(
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'Status',
-                Value : Status,
+                Value : Level_Level,
+                Label : 'Level_Level',
             },
             {
                 $Type : 'UI.DataField',
-                Label : 'Level',
-                Value : Level,
+                Value : Status_Status,
             },
         ],
     },
@@ -58,21 +57,30 @@ annotate service.Partners with @(
         },
         {
             $Type : 'UI.DataField',
-            Label : 'Status',
-            Value : Status,
+            Value : Status_Status,
         },
         {
             $Type : 'UI.DataField',
+            Value : Level_Level,
+            Label : 'Level_Level',
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : Level.Level,
             Label : 'Level',
-            Value : Level,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : Status.Status,
+            Label : 'Status',
         },
     ],
     UI.SelectionFields : [
         Name,
         PartnerID,
-        Status,
-        memberships.Type,
-        memberships.Status,
+        Status.Status,
+        memberships.Type_Type,
+        memberships.Status_Status,
     ],
     UI.SelectionPresentationVariant #tableView : {
         $Type : 'UI.SelectionPresentationVariantType',
@@ -128,12 +136,13 @@ annotate service.Partners with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : Status,
+                Value : Status_Status,
+                Label : 'Status',
             },
             {
                 $Type : 'UI.DataField',
-                Value : Level,
-                Label : 'Level',
+                Value : Level_Level,
+                Label : 'Level_Level',
             },
         ],
     },
@@ -173,16 +182,16 @@ annotate service.Memberships with @(
         },
         {
             $Type : 'UI.DataField',
+            Value : Type_Type,
+        },
+        {
+            $Type : 'UI.DataField',
+            Value : Status_Status,
+        },
+        {
+            $Type : 'UI.DataField',
             Value : Reason,
             Label : 'Reason',
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : Type,
-        },
-        {
-            $Type : 'UI.DataField',
-            Value : Status,
         },
         {
             $Type : 'UI.DataField',
@@ -196,6 +205,12 @@ annotate service.Memberships with @(
         },
     ],
     UI.Facets : [
+        {
+            $Type : 'UI.ReferenceFacet',
+            Label : 'Membership',
+            ID : 'Membership',
+            Target : '@UI.FieldGroup#Membership1',
+        },
         {
             $Type : 'UI.ReferenceFacet',
             Label : 'Dimensions',
@@ -227,11 +242,49 @@ annotate service.Memberships with @(
             },
             {
                 $Type : 'UI.DataField',
-                Value : Type,
+                Value : Type_Type,
             },
             {
                 $Type : 'UI.DataField',
-                Value : Status,
+                Value : Status_Status,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ValidFrom,
+                Label : 'ValidFrom',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ValidTo,
+                Label : 'ValidTo',
+            },
+        ],
+    },
+    UI.FieldGroup #Membership1 : {
+        $Type : 'UI.FieldGroupType',
+        Data : [
+            {
+                $Type : 'UI.DataField',
+                Value : Type_Type,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : Status_Status,
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : Reason,
+                Label : 'Reason',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ValidFrom,
+                Label : 'ValidFrom',
+            },
+            {
+                $Type : 'UI.DataField',
+                Value : ValidTo,
+                Label : 'ValidTo',
             },
         ],
     },
@@ -261,8 +314,8 @@ annotate service.Contacts with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : Function,
-            Label : 'Function',
+            Value : Function_Function,
+            Label : 'Contact Function',
         },
     ]
 );
@@ -281,13 +334,13 @@ annotate service.Dimensions with @(
         },
         {
             $Type : 'UI.DataField',
-            Value : Status,
-            Label : 'Status',
+            Value : Type_Type,
+            Label : 'Type',
         },
         {
             $Type : 'UI.DataField',
-            Value : Type,
-            Label : 'Type',
+            Value : Status_Status,
+            Label : 'Status',
         },
         {
             $Type : 'UI.DataField',
@@ -306,13 +359,13 @@ annotate service.Descriptors with @(
     UI.LineItem #Descriptors : [
         {
             $Type : 'UI.DataField',
-            Value : Descriptor,
-            Label : 'Descriptor',
+            Value : DesID,
+            Label : 'DesID',
         },
         {
             $Type : 'UI.DataField',
-            Value : DesID,
-            Label : 'DesID',
+            Value : Descriptor_Type,
+            Label : 'Descriptor_Type',
         },
         {
             $Type : 'UI.DataField',
@@ -326,4 +379,155 @@ annotate service.Descriptors with @(
         },
     ]
 );
+
+annotate service.Partners with {
+
+    Status @Common.ValueList: {
+        CollectionPath : 'PartnerStatus',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : Status_Status,
+                ValueListProperty : 'Status'
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'Description'
+            }
+        ]
+    };
+
+    Level @Common.ValueList: {
+        CollectionPath : 'PartnerLevel',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : Level_Level,
+                ValueListProperty : 'Level'
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'Description'
+            }
+        ]
+    };
+
+};
+
+annotate service.Contacts with {
+
+    Function @Common.ValueList: {
+        CollectionPath : 'ContactFunctions',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : Function_Function,
+                ValueListProperty : 'Function'
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'Description'
+            }
+        ]
+    };
+};
+
+annotate service.Memberships with {
+
+    Type @Common.ValueList: {
+        CollectionPath : 'MembershipTypes',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : Type_Type,
+                ValueListProperty : 'Type'
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'Description'
+            }
+        ]
+    };
+
+    Status @Common.ValueList: {
+        CollectionPath : 'MembershipStatuses',
+        Parameters : [
+            {
+                $Type : 'Common.ValueListParameterInOut',
+                LocalDataProperty : Status_Status,
+                ValueListProperty : 'Status'
+            },
+            {
+                $Type : 'Common.ValueListParameterDisplayOnly',
+                ValueListProperty : 'Description'
+            }
+        ]
+    };
+
+};
+
+annotate service.Dimensions with {
+
+    Type @(
+        Common.ValueList: {
+            CollectionPath : 'DimensionTypes',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Type_Type,
+                    ValueListProperty : 'Type'
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'Description'
+                }
+            ]
+        },
+        Common.ExternalID : Type.Description,
+    );
+
+    Status @(
+        Common.ValueList: {
+            CollectionPath : 'DimensionStatuses',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Status_Status,
+                    ValueListProperty : 'Status'
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'Description'
+                }
+            ]
+        },
+        Common.ExternalID : Status.Description,
+    );
+
+};
+
+
+annotate service.Descriptors with {
+
+    Descriptor @(
+        Common.ValueList: {
+            CollectionPath : 'DescriptorTypes',
+            Parameters : [
+                {
+                    $Type : 'Common.ValueListParameterInOut',
+                    LocalDataProperty : Descriptor_Type,
+                    ValueListProperty : 'Type'
+                },
+                {
+                    $Type : 'Common.ValueListParameterDisplayOnly',
+                    ValueListProperty : 'Description'
+                }
+            ]
+        },
+        Common.ExternalID : Descriptor.Description,
+    );
+
+
+
+};
 

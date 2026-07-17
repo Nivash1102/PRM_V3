@@ -7,6 +7,6 @@ Content-Type: application/json
 
 {
     "Name": "ABC Technologies Pvt Ltd",
-    "Status": "A",
-    "Level": "G"
+    "Status": "Active",
+    "Level": "Gold"
 }

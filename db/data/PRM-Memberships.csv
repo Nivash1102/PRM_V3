@@ -1,1 +1,1 @@
-MemberID,ValidTo,ID,ValidFrom,Type,Status,Reason,partner_ID,createdAt,createdBy,modifiedAt,modifiedBy
+ID,MemberID,ValidFrom,ValidTo,Type_Type,Status_Status,Reason,partner_ID,createdAt,createdBy,modifiedAt,modifiedBy

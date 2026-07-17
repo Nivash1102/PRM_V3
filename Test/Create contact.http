@@ -3,8 +3,8 @@ Content-Type: application/json
 
 {
     "FirstName": "John",
-    "LastName": "Smith",
-    "Email": "john.smith@abc.com",
-    "Function": "MAN",
-    "partner_ID": "aaf5a539-9295-4a79-b69b-da31b2bba7cf"
+    "LastName": "Kennedy",
+    "Email": "john.kennedy@abc.com",
+    "Function": "E_signer",
+    "partner_ID": "a1719c78-3b2d-4ff1-bcf4-dc0ed89bece9"
 }
