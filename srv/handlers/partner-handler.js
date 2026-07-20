@@ -21,6 +21,9 @@ module.exports = (service) => {
 
 async function assignPartnerNumber(partner, tx) {
 
+
+      console.log('Call reached PArtner number generation');
+
     partner.PartnerID = await numberRange.getNextNumber(
         tx,
         'PARTNER',
@@ -36,11 +39,17 @@ async function assignPartnerNumber(partner, tx) {
 
 async function assignContactNumbers(partner, tx) {
 
-    if (!partner.contacts?.length) {
-        return;
+    console.log('Call reached Contact number generation');
+
+    if (!partner.Contacts?.length) {
+        console.log(partner);
+        console.log('Contact number generation skipped');
+        return;        
     }
 
-    for (const contact of partner.contacts) {
+    console.log('Contact number generation started');
+
+    for (const contact of partner.Contacts) {
 
         contact.ContactID = await numberRange.getNextNumber(
             tx,
@@ -48,6 +57,7 @@ async function assignContactNumbers(partner, tx) {
             'C',
             9
         );
+         console.log('Contact number generation completed for ContactID:', contact.ContactID);
 
     }
 
